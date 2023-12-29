@@ -53,7 +53,6 @@ class KelolaBuku(DatabaseManager):
         query = f'select * from terbaru where id={id_buku}'
         return self.execute_query(query).fetchall()
 
-
 # Rahma Damayanti E1E122076
 class User(DatabaseManager):
     def __init__(self, db_file, username, password):
@@ -77,4 +76,42 @@ class User(DatabaseManager):
                 return "200"
         else:
             return "404"
+    
+# Wahyu Al Hidayat_E1E122146        
+# tidak ada overide 
+class Buku(DatabaseManager): # ini encapsulasi
+    def __init__(self, judul, penulis):
+        self.__judul = judul
+        self.__penulis = penulis
+
+    def get_judul(self):
+        return self.__judul
+
+    def set_judul(self, judul):
+        self.__judul = judul
+
+    def get_penulis(self):
+        return self.__penulis
+    
+class BukuNonFiksi(Buku): # ini polimarphisme
+    def __init__(self, judul, penulis, topik):
+        super().__init__(judul, penulis)
+        self.topik = topik
+
+    def info(self):
+        return f"Judul: {self.judul}, Penulis: {self.penulis}, Topik: {self.topik}"
+
+def main():
+    perpustakaan = perpustakaan("Taman Bacaan")
+
+    buku1 = Buku("Matahari", "Tere Liye")
+    buku2 = Buku("Sherlock Holmes", "Arthur Conan Doyle")
+
+    perpustakaan.tambah_buku(buku1)
+    perpustakaan.tambah_buku(buku2)
+
+    perpustakaan.tampilkan_daftar_buku()
+
+if __name__ == "__main__":
+    main()
 
