@@ -19,7 +19,7 @@ Diki Ardika Wiratama      E1E122093
 
 Indri                     E1E122100
 
-Muh. Fikry Haykhal        E1E122110
+Muh. Fikry Haykhal       E1E122110
 
 Muhammad Faiz Alimuddin   E1E122117
 
